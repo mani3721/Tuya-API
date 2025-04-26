@@ -1,0 +1,25 @@
+{
+  "name": "highway",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "npm install && npm run test",
+  "main": "index.js",
+  "scripts": {
+    "test": "ts-node index.js"
+  },
+  "author": "",
+  "dependencies": {
+    "axios": "^0.24.0",
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "express": "^5.1.0",
+    "nodemon": "^3.1.10",
+    "qs": "^6.10.3"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.9",
+    "@types/qs": "^6.9.7",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.4"
+  }
+}
