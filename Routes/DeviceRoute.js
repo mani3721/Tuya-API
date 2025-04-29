@@ -7,7 +7,7 @@ router.get("/status", deviceStatus)
 router.get("/info", deviceInfo)
 router.post("/command", deviceControl)
 router.get("/getalldevices", getAllDevices)
-router.delete("/delete/:deviceId", deviceDelete)
+router.delete("/delete", deviceDelete)
 
 
 export default router
