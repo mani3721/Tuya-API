@@ -1,4 +1,4 @@
-import { deviceCommand, getDeviceInfo, getToken } from "../Tuya/TuyaAPI.js";
+import { deleteDevice, deviceCommand, getDeviceInfo } from "../Tuya/TuyaAPI.js";
 
 
 // get Device Status
@@ -69,14 +69,14 @@ import { deviceCommand, getDeviceInfo, getToken } from "../Tuya/TuyaAPI.js";
   }
   }
 
-//delete Device
+  //delete Device
 
   export const deviceDelete = async (req, res) => { 
     try {
       const { client_id, secret, device_id } = req.headers;
       const path = `/v1.0/devices/${device_id}`;
 
-      const deviceInfo = await getDeviceInfo(client_id, secret, path);
+      const deviceInfo = await deleteDevice(client_id, secret, path);
 
       res.status(200).json(deviceInfo)
   } catch (error) {
