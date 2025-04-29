@@ -137,3 +137,30 @@ export const deviceCommand =  async (clientId, secretKey, path, body) => {
  }
 }
 
+
+export const deleteDevice= async (clientId, secretKey, path) => {
+  const query = {};
+  const method = 'DELETE';
+  const url = path;
+
+  const accessToken = await getToken(clientId, secretKey);
+  const reqHeaders = await getRequestSign(url, method, {}, query, {}, accessToken, clientId, secretKey);
+
+  try {
+    const { data } = await httpClient.request({
+      method,
+      data: {},
+      params: {},
+      headers: reqHeaders,
+      url: reqHeaders.path,
+    });
+    
+    if (!data || !data.success) {
+      throw Error(`request api failed: ${data.msg}`);
+    }
+    
+    return data;
+  } catch (error) {
+    throw Error(`Device info fetch error: ${error.message}`);
+  }
+}
